@@ -72,16 +72,9 @@
   
   <!-- Logout Button -->
   <div class="logout-container">
-    <button class="power-button" onclick="toggleLogoutDropdown()">
+    <button class="power-button" onclick="handleLogout(event)">
       <i class="fas fa-power-off"></i>
-    </button>
-    <div class="logout-dropdown" id="logoutDropdown">
-     <button onclick="handleLogout(event)">
-  <i class="fas fa-sign-out-alt"></i>
-  Logout
-</button>
-
-    </div>
+      </button>
   </div>
 </header>
 
@@ -140,7 +133,6 @@
               <div class="card-info">
                 <h3>Certification</h3>
                 <p>Earned 8+ certifications from reputable and acclaimed organizations.</p>
-                <span class="new-badge">Still learning</span>
               </div>
             </div>
             <div class="netflix-card" data-number="4">

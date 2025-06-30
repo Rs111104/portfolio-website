@@ -1707,3 +1707,297 @@ html {
         overflow-y: auto !important;
     }
 }
+/* =========================================
+   Responsive Tweaks (added 30-Jun-2025)
+   ----------------------------------------
+   These overrides sit AT THE VERY BOTTOM
+   of your existing style.css so nothing
+   above is removed or changed.             
+   ========================================= */
+
+/* Global fluid type scale tightened for very small devices */
+@media (max-width: 420px) {
+  html {
+    font-size: clamp(13px, 3.2vw, 16px);
+  }
+}
+
+/* -----------------------------------------
+   Navigation & Header
+   -----------------------------------------*/
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+  }
+  .brand {
+    font-size: 2rem;
+  }
+  /* Make sure the nav drawer fills the full width and scrolls if needed */
+  #navLinks {
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+}
+
+/* -----------------------------------------
+   Hero / Main Content
+   -----------------------------------------*/
+@media (max-width: 600px) {
+  .main-content {
+    padding: 24px 20px;
+  }
+  .main-content h1 {
+    font-size: 1.9rem !important;
+  }
+  .main-content p {
+    font-size: 1rem;
+  }
+}
+
+/* -----------------------------------------
+   Netflix style cards slider
+   -----------------------------------------*/
+@media (max-width: 768px) {
+  .netflix-slider .netflix-card {
+    min-width: 200px;
+    height: 280px;
+  }
+  .netflix-card .card-number {
+    font-size: 3.3rem;
+  }
+}
+@media (max-width: 480px) {
+  .netflix-slider .netflix-card {
+    min-width: 160px;
+    height: 230px;
+  }
+  .netflix-card .card-number {
+    font-size: 2.8rem;
+  }
+}
+
+/* -----------------------------------------
+   Skills grid
+   -----------------------------------------*/
+@media (max-width: 768px) {
+  .skill-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
+  }
+  .skill-card {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 480px) {
+  .skill-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
+/* -----------------------------------------
+   Projects grid
+   -----------------------------------------*/
+@media (max-width: 991px) {
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-card {
+    transform: none !important; /* prevent hover scaling from breaking width */
+  }
+}
+
+/* -----------------------------------------
+   Timeline two-column → single column on mobile
+   -----------------------------------------*/
+@media (max-width: 768px) {
+  .timeline-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .timeline-column:first-child::after {
+    display: none;
+  }
+}
+
+/* -----------------------------------------
+   Hire-me grid
+   -----------------------------------------*/
+@media (max-width: 768px) {
+  .hire-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-form-section {
+    margin-top: 40px;
+  }
+}
+
+/* -----------------------------------------
+   About section improvements
+   -----------------------------------------*/
+@media (max-width: 768px) {
+  .about-intro {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .avatar {
+    width: 150px;
+    height: 150px;
+    font-size: 3rem;
+  }
+  .trait-tags {
+    justify-content: center;
+  }
+}
+
+/* -----------------------------------------
+   Universal image responsiveness safeguard
+   -----------------------------------------*/
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* -----------------------------------------
+   Prevent overscroll on body when nav open
+   -----------------------------------------*/
+body.menu-open {
+  position: fixed;
+  width: 100%;
+}
+
+/* Power Button Dropdown Styles */
+.power-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.power-btn {
+  background: transparent;
+  border: 2px solid #ff0000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.power-btn:hover {
+  background: rgba(255, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.power-icon {
+  color: #ff0000;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Dropdown Menu Styles */
+.power-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  min-width: 150px;
+  z-index: 1000;
+  margin-top: 5px;
+}
+
+.power-dropdown-menu.show {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logout-btn {
+  display: block;
+  padding: 12px 16px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  border-radius: 6px;
+  margin: 4px;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ff6b6b;
+}
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .power-dropdown-menu {
+    right: -10px;
+    min-width: 120px;
+  }
+  
+  .logout-btn {
+    padding: 14px 12px;
+    font-size: 16px;
+  }
+  
+  .power-btn {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .power-icon {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .power-dropdown-menu {
+    position: fixed;
+    top: auto;
+    bottom: 80px;
+    right: 20px;
+    left: auto;
+    min-width: 140px;
+  }
+  
+  .logout-btn {
+    padding: 16px 14px;
+    text-align: center;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .power-btn {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .logout-btn {
+    padding: 16px 12px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
