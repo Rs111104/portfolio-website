@@ -1733,7 +1733,7 @@ img {
   .navbar-controls {
     display: flex;
     align-items: center;
-    gap: 15px; /* Reduced gap for mobile */
+    gap: 25px; /* Reduced gap for mobile */
     order: 3; /* Place controls at the end */
   }
   
