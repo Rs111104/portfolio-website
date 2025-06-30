@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rahul's Netflix Style Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HOMEPAGE -->
+  <div class="home-screen" id="homeScreen">
+    <h1 class="curved-text" onclick="goToProfiles()">RAHUL SINGHI</h1>
+  </div>
+
+  <!-- PROFILE SELECTOR -->
+  <div class="profile-screen" id="profileScreen" style="display: none;">
+    <h2 class="title">Who's watching?</h2>
+    <div class="profiles">
+      <div class="profile" onclick="animateProfile(this, 'Recruiter')">
+        <img src="https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg" alt="Recruiter">
+        <p>Recruiter</p>
+      </div>
+      <div class="profile" onclick="animateProfile(this, 'Stalker')">
+        <img src="https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.jpg" alt="Stalker">
+        <p>Stalker</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WELCOME SCREEN -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="netflix-logo">
+      <div id="welcomeLine1" class="line1">
+        <span>Welcome</span>
+        <span>to</span>
+        <span>Rahul's</span>
+        <span>Corner</span>
+        <span>of</span>
+        <span>the</span>
+        <span>Internet</span>
+      </div>
+      <div id="welcomeLine2" class="line2"></div>
+      <div class="netflix-loader"></div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT SECTION -->
+  <section class="scroll-section" id="scrollSection" style="display: none;">
+    <header class="navbar">
+      <div class="brand">RahulFlix</div>
+      <nav class="nav-links">
+        <a href="#" onclick="showSection('home')" data-section="home">Home</a>
+        <a href="#" onclick="showSection('skills')" data-section="skills">Skills</a>
+        <a href="#" onclick="showSection('projects')" data-section="projects">Projects</a>
+        <a href="#" onclick="showSection('professional')" data-section="professional">Timeline</a>
+        <a href="#" onclick="showSection('hire')" data-section="hire">Contact</a>
+        <a href="#" onclick="showSection('about')" data-section="about">About</a>
+      </nav>
+      <div class="logout-container">
+        <button class="power-button" onclick="toggleLogoutDropdown()">
+          <i class="fas fa-power-off"></i>
+        </button>
+        <div class="logout-dropdown" id="logoutDropdown">
+          <button onclick="handleLogout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HOME SECTION -->
+    <div class="content-section" id="homeSection">
+      <div class="main-content">
+        <h1 style="font-size: 32px; color: white;">
+          Rahul Singhi – Passionate Developer, Aspiring Cybersecurity Expert
+        </h1>
+        <p>
+          A passionate developer working towards building modern technologies.I'm skilled in front-end technologies and cybersecurity tools and always eager to learn new tools and technologies.
+        </p>
+        <div class="buttons">
+          <a href="https://drive.google.com/file/d/1zm7VmS3TtWsc9eRb-hKjPIH2h2ioIIVd/view?usp=drive_link" target="_blank" class="resume-btn">
+            <img src="https://i.pinimg.com/736x/57/fe/98/57fe9893aca86265c86d94d93824e91b.jpg" alt="Resume" class="resume-icon" style="width:65px; height:60px;"/>
+          </a>
+          <button class="linkedin">
+            <a href="https://www.linkedin.com/in/rs1104" target="_blank" class="linkedin-btn">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRokEYt0yyh6uNDKL8uksVLlhZ35laKNQgZ9g&s" alt="LinkedIn" style="width:40px; height:40px;"/>
+            </a>
+          </button>
+          <button class="github">
+            <a href="http://github.com/Rs111104" target="_blank" class="github-btn">
+              <img src="https://cdn.prod.website-files.com/5f10ed4b2ae6bc09c03f5d7a/64959d5f65a257fb51a4259c_github.png" alt="GitHub" class="github-icon"/>
+            </a>
+          </button>
+        </div>
+      </div>
+
+      <!-- ENHANCED NETFLIX STYLE PROJECTS SECTION -->
+      <div class="netflix-section">
+        <h2 class="section-title">Today's Pick</h2>
+        <div class="netflix-slider">
+          <div class="slider-container" id="sliderContainer">
+            <div class="netflix-card" data-number="1">
+              <div class="card-number">1</div>
+              <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&h=400&fit=crop" alt="Web Development">
+              <div class="card-info">
+                <h3>Level</h3>
+                <p>Learning and Gaining experience</p>
+                <span class="new-badge">Fresher</span>
+              </div>
+            </div>
+            <div class="netflix-card" data-number="2">
+              <div class="card-number">2</div>
+              <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=300&h=400&fit=crop" alt="E-commerce">
+              <div class="card-info">
+                <h3>Projects</h3>
+                <p>Development and Coding</p>
+                <p>4+ Projects completed</p>
+              </div>
+            </div>
+            <div class="netflix-card" data-number="3">
+              <div class="card-number">3</div>
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=400&fit=crop" alt="Dashboard">
+              <div class="card-info">
+                <h3>Certification</h3>
+                <p>Earned 8+ certifications from reputable and acclaimed organizations.</p>
+                <span class="new-badge">Still learning</span>
+              </div>
+            </div>
+            <div class="netflix-card" data-number="4">
+              <div class="card-number">4</div>
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&h=400&fit=crop" alt="Mobile App">
+              <div class="card-info">
+                <h3>Languages</h3>
+                <p>English • Hindi • French • Punjabi</p>
+              </div>
+            </div>
+            <div class="netflix-card" data-number="5">
+              <div class="card-number">5</div>
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=400&fit=crop" alt="AI Project">
+              <div class="card-info">
+                <h3>Skills</h3>
+                <p>Still Learning and Upgrading</p>
+              </div>
+            </div>
+            <div class="netflix-card" data-number="6">
+              <div class="card-number">6</div>
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300&h=400&fit=crop" alt="Web Development">
+              <div class="card-info">
+                <h3>Social Media</h3>
+                <p>Available on Twitter and Instagram</p>
+                <span class="new-badge">New</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENHANCED SKILLS SECTION -->
+    <div class="content-section" id="skillsSection" style="display: none;">
+      <div class="skills-container">
+        <h2 class="section-title">My Skills</h2>
+        
+        <div class="skill-category">
+          <h3 class="category-title">Frontend</h3>
+          <div class="skill-grid">
+            <div class="skill-card">
+              <div class="skill-icon">🔵</div>
+              <h4>HTML</h4>
+              <p>Markup Language</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🔵</div>
+              <h4>CSS</h4>
+              <p>Styling Language</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🔵</div>
+              <h4>JavaScript</h4>
+              <p>Scripting Language</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🔵</div>
+              <h4>next js</h4>
+              <p>Frontend Framework</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🔵</div>
+              <h4>Tailwind</h4>
+              <p>Utility CSS</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🔵</div>
+              <h4>TypeScript</h4>
+              <p>Typed JS</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="category-title">Backend</h3>
+          <div class="skill-grid">
+            <div class="skill-card">
+              <div class="skill-icon">🟥</div>
+              <h4>Node.js</h4>
+              <p>JS Runtime</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🟥</div>
+              <h4>Express.js</h4>
+              <p>Web Framework</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🟥</div>
+              <h4>Spring Boot</h4>
+              <p>Java Framework</p> 
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🟥</div>
+              <h4>Python</h4>
+              <p>Programming Language</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🟥</div>
+              <h4>Java</h4>
+              <p>OOP Language</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🟥</div>
+              <h4>PhP</h4>
+              <p>Backend Language</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="category-title">Databases</h3>
+          <div class="skill-grid">
+            <div class="skill-card">
+              <div class="skill-icon">🟦</div>
+              <h4>MySQL</h4>
+              <p>Relational DB</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🟦</div>
+              <h4>PostgreSQL</h4>
+              <p>Relational DB</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🟦</div>
+              <h4>MongoDB</h4>
+              <p>NoSQL DB</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🟦</div>
+              <h4>SQLite</h4>
+              <p>Lightweight DB</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🟦</div>
+              <h4>Firebase</h4>
+              <p>Realtime DB</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="category-title">Cybersecurity</h3>
+          <div class="skill-grid">
+            <div class="skill-card">
+              <div class="skill-icon">🔐</div>
+              <h4>Wireshark</h4>
+              <p>Network Analysis</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🔐</div>
+              <h4>Nmap</h4>
+              <p>Network Scanner</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🔐</div>
+              <h4>Metasploit</h4>
+              <p>Penetration Testing</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🔐</div>
+              <h4>Burp Suite</h4>
+              <p>Web Security</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🔐</div>
+              <h4>OWASP ZAP</h4>
+              <p>Security Scanner</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🔐</div>
+              <h4>Kali Linux</h4>
+              <p>Security OS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENHANCED PROJECTS SECTION -->
+    <div class="content-section" id="projectsSection" style="display: none;">
+      <div class="projects-container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+          
+          <!-- Stock Broker Application -->
+          <div class="project-card">
+            <div class="project-banner blue-gradient">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="project-content">
+              <h3>Stock Broker Platform</h3>
+              <p>A comprehensive stock trading application that enables customers to invest in the stock market through a secure web-based platform. Features include portfolio management, real-time market data, and transaction tracking [6].</p>
+              <div class="tech-tags">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">REST API</span>
+              </div>
+              <div class="project-buttons">
+                <button class="btn-primary" onclick="window.open('https://github.com/Rs111104/stock-broker', '_blank')">
+                  <i class="fas fa-eye"></i> View
+                </button>
+                <button class="btn-secondary" onclick="window.open('https://github.com/Rs111104/stock-broker', '_blank')">
+                  <i class="fab fa-github"></i> Code
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Password Encryption Tool -->
+          <div class="project-card">
+            <div class="project-banner green-gradient">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="project-content">
+              <h3>Password Encryption System</h3>
+              <p>Advanced password encryption and decryption utility using AES encryption algorithm. Provides secure password management with key generation, initialization vectors, and command-line interface [14].</p>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">AES Encryption</span>
+                <span class="tech-tag">Cryptography</span>
+                <span class="tech-tag">Security</span>
+              </div>
+              <div class="project-buttons">
+                <button class="btn-primary" onclick="window.open('https://github.com/Rs111104/Password-Encryption', '_blank')">
+                  <i class="fas fa-eye"></i> View
+                </button>
+                <button class="btn-secondary" onclick="window.open('https://github.com/Rs111104/Password-Encryption', '_blank')">
+                  <i class="fab fa-github"></i> Code
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Keylogger Application -->
+          <div class="project-card">
+            <div class="project-banner red-gradient">
+              <i class="fas fa-keyboard"></i>
+            </div>
+            <div class="project-content">
+              <h3>Advanced Keylogger</h3>
+              <p>Cross-platform keystroke logging application that records keyboard inputs and mouse clicks. Features remote server communication and stealth operation for cybersecurity research and monitoring [16][19].</p>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">PyInput</span>
+                <span class="tech-tag">Socket Programming</span>
+                <span class="tech-tag">Monitoring</span>
+              </div>
+              <div class="project-buttons">
+                <button class="btn-primary" onclick="window.open('https://github.com/Rs111104/keylogger', '_blank')">
+                  <i class="fas fa-eye"></i> View
+                </button>
+                <button class="btn-secondary" onclick="window.open('https://github.com/Rs111104/keylogger', '_blank')">
+                  <i class="fab fa-github"></i> Code
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hash Cracker Tool -->
+          <div class="project-card">
+            <div class="project-banner orange-gradient">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="project-content">
+              <h3>Hash Cracker Utility</h3>
+              <p>Powerful hash cracking tool that supports multiple hash formats including MD5, SHA-1, SHA-256, and SHA-512. Features dictionary attacks, brute force capabilities, and verbose output for penetration testing [22][23].</p>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Hashlib</span>
+                <span class="tech-tag">Brute Force</span>
+                <span class="tech-tag">Penetration Testing</span>
+              </div>
+              <div class="project-buttons">
+                <button class="btn-primary" onclick="window.open('https://github.com/Rs111104/hash-cracker', '_blank')">
+                  <i class="fas fa-eye"></i> View
+                </button>
+                <button class="btn-secondary" onclick="window.open('https://github.com/Rs111104/hash-cracker', '_blank')">
+                  <i class="fab fa-github"></i> Code
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Non-hashed Password Cracker -->
+          <div class="project-card">
+            <div class="project-banner purple-gradient">
+              <i class="fas fa-key"></i>
+            </div>
+            <div class="project-content">
+              <h3>Non-Hashed Password Cracker</h3>
+              <p>Educational cybersecurity tool demonstrating vulnerabilities in non-hashed password storage. Implements dictionary and brute force attacks to highlight the importance of proper password hashing [24][27].</p>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Dictionary Attack</span>
+                <span class="tech-tag">Security Research</span>
+                <span class="tech-tag">Vulnerability Assessment</span>
+              </div>
+              <div class="project-buttons">
+                <button class="btn-primary" onclick="window.open('https://github.com/Rs111104/Non-hashed-Password-Cracker', '_blank')">
+                  <i class="fas fa-eye"></i> View
+                </button>
+                <button class="btn-secondary" onclick="window.open('https://github.com/Rs111104/Non-hashed-Password-Cracker', '_blank')">
+                  <i class="fab fa-github"></i> Code
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ENHANCED PROFESSIONAL EXPERIENCE SECTION -->
+    <div class="content-section" id="professionalSection" style="display: none;">
+      <div class="professional-container">
+        <h1 class="section-title">Professional Journey</h1>
+        <div class="timeline-grid">
+          <div class="timeline-column">
+            <h3 class="timeline-column-title">Work Experience</h3>
+            <div class="timeline">
+              <div class="timeline-line"></div>
+              
+              <div class="timeline-item">
+                <div class="timeline-milestone">
+                  <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-date">Jun 2025 - Present</div>
+                  <div class="experience-card">
+                    <h3>IT Intern</h3>
+                    <h4>Central Bank Of India</h4>
+                    <div class="tech-stack">
+                      <span class="tech-item">IT</span>
+                      <span class="tech-item">Networking</span>
+                      <span class="tech-item">Intranet</span>
+                      <span class="tech-item">Finance</span> 
+                    </div>
+                    <div class="achievements">
+                      <p>Successfully contributed to IT operations and supported digital transformation projects at the zonal office.</p>
+                      <p>Gained hands-on experience with core banking technology, cybersecurity protocols, and data analytics tools.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-milestone">
+                  <i class="fas fa-code"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-date">June 2024 - july 2024</div>
+                  <div class="experience-card">
+                    <h3>Campus Ambassador </h3>
+                    <h4>Internshala </h4>
+                    <div class="tech-stack">
+                      <span class="tech-item">Leadership</span>
+                      <span class="tech-item">Networking</span>
+                      <span class="tech-item">Brand Promotion</span>
+                    </div>
+                    <div class="achievements">
+                      <p>Represented Internshala on campus, increasing student awareness about internships and career opportunities.</p>
+                      <p>Built strong communication and leadership skills by acting as the main link between Internshala and the student community.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-milestone">
+                  <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-date">June 2024 - August 2024</div>
+                  <div class="experience-card">
+                    <h3>Campus Ambassador</h3>
+                    <h4>Agnirva</h4>
+                    <div class="tech-stack">
+                      <span class="tech-item">Leadership</span>
+                      <span class="tech-item">Vue.js</span>
+                      <span class="tech-item">Campus Outreach</span>
+                      <span class="tech-item">Networking</span>
+                    </div>
+                    <div class="achievements">
+                      <p>Promoted Agnirva's space and tech programs on campus through workshops, seminars, and social media campaigns, increasing student participation and awareness.</p>
+                      <p>Acted as the main link between Agnirva and my college, gathering feedback, answering queries, and helping students enroll in internships and certification programs.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-column">
+            <h3 class="timeline-column-title">Education</h3>
+            <div class="timeline">
+              <div class="timeline-line"></div>
+              
+              <div class="timeline-item">
+                <div class="timeline-milestone">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-date">2022 - 2026</div>
+                  <div class="experience-card">
+                    <h3>Bachelor's in Computer Science and Engineering With specialization in Cybersecurity</h3>
+                    <h4>Srm University</h4>
+                    <div class="tech-stack">
+                      <span class="tech-item">Cybersecurity</span>
+                      <span class="tech-item">Coding</span>
+                      <span class="tech-item">Personality Devlopment</span>
+                      <span class="tech-item">Modern technologies</span>
+                    </div>
+                    <div class="achievements">
+                      <p>🎓 Graduating with distinction in Computer Science, maintaining an approximate CGPA of 8.00 . </p>
+                      <p>🏆 Learned about computer technologies and Coding.</p>
+                      <p>📚 Specialized in Cybersecurity.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-milestone">
+                  <i class="fas fa-certificate"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-date">2022</div>
+                  <div class="experience-card">
+                    <h3>Student</h3>
+                    <h4>Career Point Gurukul</h4>
+                    <div class="tech-stack">
+                      <span class="tech-item">Science</span>
+                      <span class="tech-item">CBSE</span>
+                      <span class="tech-item">Learning</span>
+                    </div>
+                    <div class="achievements">
+                      <p>Completed my Science education in boarding school with 80% score .</p>
+                      <p>Prepared for competitive exams</p>
+                      <p>Personality and moral Development.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-milestone">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-date">2020</div>
+                  <div class="experience-card">
+                    <h3>Student</h3>
+                    <h4>St. Joseph's Academy</h4>
+                    <div class="tech-stack">
+                      <span class="tech-item">Schooling</span>
+                      <span class="tech-item">CBSE</span>
+                    </div>
+                    <div class="achievements">
+                      <p>Completed my high school education with 80% score</p>
+                      <p>being a Discipline incharge i ensured students follow rules and regulation.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENHANCED HIRE ME SECTION -->
+    <div class="content-section" id="hireSection" style="display: none;">
+      <div class="hire-container">
+        <h2 class="section-title">Hire Me</h2>
+        <div class="hire-grid">
+          <div class="contact-info">
+            <h3 class="hire-subtitle">Get In Touch</h3>
+            <div class="contact-cards">
+              <div class="contact-card email-card">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Email</h4>
+                  <p>rahulsinghi063@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-card linkedin-card">
+                <div class="contact-icon">
+                  <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>LinkedIn</h4>
+                  <p>https://www.linkedin.com/in/rs1104</p>
+                </div>
+              </div>
+              <div class="contact-card github-card">
+                <div class="contact-icon">
+                  <i class="fab fa-github"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>GitHub</h4>
+                  <p>https://github.com/Rs111104</p>
+                </div>
+              </div>
+              <div class="contact-card phone-card">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Phone</h4>
+                  <p>+91-8920021872</p>
+                </div>
+              </div>
+            </div>
+            <div class="why-hire">
+              <h4>Why Hire Me?</h4>
+              <ul class="hire-benefits">
+                <li><i class="fas fa-check"></i>Strong problem solving skills</li>
+                <li><i class="fas fa-check"></i>Excellent communication abilities</li>
+                <li><i class="fas fa-check"></i>Modern technologies</li>
+                <li><i class="fas fa-check"></i>Cybersecurity knowledge</li>
+                <li><i class="fas fa-check"></i>Business Minded</li>
+              </ul>
+            </div>
+          </div>
+          <div class="contact-form-section">
+            <h3 class="hire-subtitle">Send Message</h3>
+            <form class="contact-form" action="https://formsubmit.co/rahulsinghi063@gmail.com" method="POST">
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <input type="text" id="subject" name="subject" placeholder="Project subject" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Reason for Hiring *</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project requirements..." required></textarea>
+              </div>
+              <!-- Optional: Prevent spam -->
+              <input type="hidden" name="_captcha" value="false">
+              <!-- Optional: Redirect after submit -->
+              <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+              <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENHANCED ABOUT SECTION -->
+    <div class="content-section" id="aboutSection" style="display: none;">
+      <div class="about-container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-intro">
+          <div class="avatar-section">
+            <div class="avatar">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+          <div class="intro-text">
+            <h3>Hi, I'm Rahul</h3>
+            <p class="subtitle">Developer & Cybersecurity Enthusiast</p>
+            <p class="description">Passionate developer with creating innovative solutions. I specialize in modern frameworks, backend technologies, and cybersecurity practices. Always eager to learn new technologies and solve real life problems.</p>
+            <div class="trait-tags">
+              <span class="trait-tag red">Problem Solver</span>
+              <span class="trait-tag blue">Business Minded</span>
+              <span class="trait-tag green">Quick Learner</span>
+              <span class="trait-tag purple">Decision Maker</span>
+            </div>
+          </div>
+        </div>
+        <div class="philosophy-section">
+          <h3 class="about-section-title">My Philosophy</h3>
+          <div class="philosophy-grid">
+
+            <div class="philosophy-card">
+              <div class="philosophy-icon blue-bg">
+                <i class="fas fa-code"></i>
+              </div>
+              <h4>Code Quality</h4>
+              <p>I like to keep my code clean, fast, and future ready. I don't just build to make things work. I build in a way that it's easy to read, update, and scale. If something can be simpler, I'll make it simpler.</p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="philosophy-icon green-bg">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h4>Continuous Learning</h4>
+              <p>I learn by doing. Whether it's late night debugging, exploring new tools, or figuring things out from scratch, I keep picking things up as I go. Every problem I face teaches me something new.</p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="philosophy-icon red-bg">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h4>User Experience</h4>
+              <p>I build for real people. If something feels confusing or slow, I know it's not done yet. Whether it's a small business owner using WhatsApp or someone checking out my portfolio, I want things to feel smooth and easy.</p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="philosophy-icon orange-bg">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h4>Security First</h4>
+              <p>Even in fast builds or MVPs, I think about security. I believe anything I create should respect the user and protect their data. That's just a part of building things right.</p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="philosophy-icon purple-bg">
+                <i class="fas fa-users"></i>
+              </div>
+              <h4>Team Collaboration</h4>
+              <p>I enjoy working with others who are serious about building. Good ideas get better when shared, and projects go smoother when communication is clear. I'm always open to feedback and new ways of doing things.</p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="philosophy-icon yellow-bg">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h4>Innovation</h4>
+              <p>I focus on finding what works. Sometimes the best solution isn't the most complex one. If a problem needs solving, I'll figure out a way  whether it's using a new tech stack or just putting the right tools together in a smart way.</p>
+            </div>
+
+          </div>
+        </div>
+        <div class="interests-section">
+          <h3 class="about-section-title">When I'm Not Coding</h3>
+          <div class="interests-grid">
+            <div class="interest-card">
+              <div class="interest-icon blue-bg">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <h4>Gaming</h4>
+              <p>Exploring virtual worlds and strategic gameplay</p>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon green-bg">
+                <i class="fas fa-music"></i>
+              </div>
+              <h4>Music</h4>
+              <p>I love to listen to music when free or travelling</p>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon purple-bg">
+                <i class="fas fa-book"></i>
+              </div>
+              <h4>Reading</h4>
+              <p>Tech blogs and industry insights</p>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon red-bg">
+                <i class="fas fa-laptop"></i>
+              </div>
+              <h4>learning</h4>
+              <p>Staying Updated with new Technologies and News</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let selectedProfile = "";
+    let currentSection = 'home';
+
+    function goToProfiles() {
+      document.getElementById("homeScreen").classList.add("fadeOut");
+      setTimeout(() => {
+        document.getElementById("homeScreen").style.display = "none";
+        document.getElementById("profileScreen").style.display = "flex";
+        document.getElementById("profileScreen").classList.add("fadeIn");
+      }, 600);
+    }
+
+    function showSection(sectionName) {
+      const sections = ['homeSection', 'professionalSection', 'skillsSection', 'projectsSection', 'hireSection', 'aboutSection'];
+      sections.forEach(section => {
+        const el = document.getElementById(section);
+        if (el) el.style.display = 'none';
+      });
+      
+      const targetSection = sectionName + 'Section';
+      const targetEl = document.getElementById(targetSection);
+      if (targetEl) targetEl.style.display = 'block';
+      currentSection = sectionName;
+
+      // Remove active class from all nav links
+      const navLinks = document.querySelectorAll('.navbar nav a');
+      navLinks.forEach(link => link.classList.remove('active'));
+      
+      // Add active class only to the clicked link
+      const activeLink = document.querySelector(`[data-section="${sectionName}"]`);
+      if (activeLink) {
+        activeLink.classList.add('active');
+      }
+
+      document.getElementById('scrollSection').scrollTop = 0;
+    }
+
+    function goBack() {
+      document.getElementById("scrollSection").style.display = "none";
+      document.getElementById("profileScreen").style.display = "flex";
+      document.body.classList.add("no-scroll");
+    }
+
+    function animateProfile(element, profileName) {
+      selectedProfile = profileName;
+      element.classList.add("clicked");
+      setTimeout(() => {
+        document.getElementById("profileScreen").style.display = "none";
+        document.getElementById("loadingScreen").style.display = "flex";
+        document.getElementById("welcomeLine2").innerText = profileName;
+        setTimeout(() => {
+          document.getElementById("loadingScreen").style.display = "none";
+          document.getElementById("scrollSection").style.display = "block";
+          // Show home section but don't set active class initially
+          showSection('home');
+          // Remove the active class so no section is highlighted initially
+          const navLinks = document.querySelectorAll('.navbar nav a');
+          navLinks.forEach(link => link.classList.remove('active'));
+          document.body.classList.remove("no-scroll");
+          document.getElementById("scrollSection").scrollIntoView({ behavior: 'smooth' });
+        }, 3000);
+      }, 300);
+    }
+
+    function toggleLogoutDropdown() {
+      document.getElementById("logoutDropdown").classList.toggle("show");
+    }
+
+    function handleLogout() {
+      document.getElementById("scrollSection").style.display = "none";
+      document.getElementById("profileScreen").style.display = "flex";
+      document.getElementById("logoutDropdown").classList.remove("show");
+      document.body.classList.add("no-scroll");
+      
+      // Reset to home section for next login
+      showSection('home');
+      // Remove active class on logout
+      const navLinks = document.querySelectorAll('.navbar nav a');
+      navLinks.forEach(link => link.classList.remove('active'));
+    }
+
+    function goToMainContent() {
+      showSection('home');
+    }
+
+    function scrollSlider(direction) {
+      const container = document.getElementById('sliderContainer');
+      const cardWidth = 250;
+      const scrollAmount = cardWidth * 2;
+      if (direction === 'left') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      alert("Thank you for your message! I will get back to you soon.");
+      event.target.reset();
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.closest('.logout-container')) {
+        document.getElementById("logoutDropdown").classList.remove("show");
+      }
+    };
+  </script>
+</body>
+</html>
