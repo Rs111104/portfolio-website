@@ -556,13 +556,13 @@ body {
 }
 
 .netflix-card:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   z-index: 50;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
 }
 
 .netflix-card:hover ~ .netflix-card {
-  transform: translateX(50px);
+  transform: translateX(40px);
 }
 
 .netflix-card:hover .card-info {
@@ -1535,69 +1535,148 @@ html {
   font-size: clamp(14px, 2.3vw, 18px);   /* scales between 14 – 18 px */
   scroll-behavior: smooth;
 }
-/* ======= SMALL DEVICES (≤ 600 px) ======= */
-@media (max-width: 600px) {
+/* HAMBURGER MENU STYLES */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
 
-  /* NAVBAR ------------------------------------------------ */
-  .navbar            { padding: 0 16px; height: 56px; }
-  .brand             { font-size: 1.6rem; }
-  .nav-links a       { font-size: .9rem; padding: 6px 10px; }
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
 
-  /* HOME & SECTIONS -------------------------------------- */
-  .curved-text       { font-size: 3rem; letter-spacing: 2px; }
-  .title             { font-size: 2rem; margin-bottom: 24px; }
-  .main-content      { margin: 80px auto 24px; padding: 24px; }
-  .scroll-section,
-  .netflix-section,
-  .projects-container,
-  .skills-container,
-  .professional-container,
-  .about-container,
-  .hire-container    { padding: 24px 16px; }
+/* Hamburger animation when active */
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
 
-  /* FLEX → COLUMN for tight width ------------------------ */
-  .profiles,
-  .skill-grid,
-  .projects-grid,
-  .timeline-grid,
-  .hire-grid,
-  .about-intro       { grid-template-columns: 1fr; flex-direction: column; }
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
 
-  /* CARDS & SLIDER --------------------------------------- */
-  .netflix-card      { min-width: 70vw; height: 260px; }
-  .slider-btn        { display: none; }    /* hide arrows on touch swipe */
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* UPDATED MOBILE RESPONSIVE STYLES */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+    height: 60px; /* Fixed height for mobile */
+    position: relative;
+  }
   
-  /* CONTACT CARDS ---------------------------------------- */
-  .contact-card      { flex-direction: column; text-align: center; }
-  .contact-icon      { margin: 0 0 12px 0; }
-
-  /* AVATAR SIZE ------------------------------------------ */
-  .avatar            { width: 140px; height: 140px; font-size: 3rem; }
+  .brand {
+    font-size: 1.8rem;
+  }
+  
+  /* Show hamburger menu on mobile */
+  .hamburger-menu {
+    display: flex;
+  }
+  
+  /* Hide nav-links by default on mobile */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    border-radius: 0 0 12px 12px;
+    gap: 15px;
+    z-index: 999;
+  }
+  
+  /* Show nav-links when menu is active */
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links a {
+    padding: 12px 16px;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background-color: #e50914;
+    border-color: #e50914;
+    transform: translateX(5px);
+  }
+  
+  /* Logout container adjustment */
+  .logout-container {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .power-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
 }
 
-/* ======= MEDIUM DEVICES (601 – 991 px) ======= */
+/* Add this CSS at the END of your existing style.css file */
+
+/* UPDATED MEDIUM DEVICES */
 @media (max-width: 991px) {
-
-  .navbar            { padding: 0 24px; }
-  .brand             { font-size: 2rem; }
-  .main-content      { margin-top: 100px; }
-
-  /* Two-column areas collapse gracefully */
-  .timeline-grid,
-  .hire-grid         { grid-template-columns: 1fr; }
+  .navbar {
+    padding: 0 24px;
+  }
+  
+  .brand {
+    font-size: 2rem;
+  }
+  
+  .nav-links {
+    gap: 15px;
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
 }
 
-/* ======= LARGE MONITORS (≥ 1440 px) ======= */
-@media (min-width: 1440px) {
-  /* Prevent content from stretching too wide */
-  .main-content,
-  .skills-container,
-  .projects-container,
-  .professional-container,
-  .about-container,
-  .hire-container    { max-width: 1200px; margin-left: auto; margin-right: auto; }
+/* Ensure desktop layout remains unchanged */
+@media (min-width: 769px) {
+  .hamburger-menu {
+    display: none !important;
+  }
+  
+  .nav-links {
+    display: flex !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+  }
 }
-
-
-
-
