@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
   <!-- HOMEPAGE -->
   <div class="home-screen" id="homeScreen">
@@ -50,33 +49,32 @@
   <!-- MAIN CONTENT SECTION -->
   <section class="scroll-section" id="scrollSection" style="display: none;">
     <header class="navbar">
-  <div class="brand">RahulFlix</div>
-  
-  <!-- Hamburger Menu Button (Mobile Only) -->
-  <button class="hamburger-menu" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
-    <span class="hamburger-line"></span>
-    <span class="hamburger-line"></span>
-    <span class="hamburger-line"></span>
-  </button>
-  
-  <!-- Navigation Links -->
-  <nav class="nav-links" id="navLinks">
-    <a href="#" onclick="showSection('home')" data-section="home">Home</a>
-    <a href="#" onclick="showSection('skills')" data-section="skills">Skills</a>
-    <a href="#" onclick="showSection('projects')" data-section="projects">Projects</a>
-    <a href="#" onclick="showSection('professional')" data-section="professional">Timeline</a>
-    <a href="#" onclick="showSection('hire')" data-section="hire">Contact</a>
-    <a href="#" onclick="showSection('about')" data-section="about">About</a>
-</div>
-  </nav>
-  
-  <!-- Logout Button -->
-  <div class="logout-container">
-    <button class="power-button" onclick="handleLogout(event)">
-      <i class="fas fa-power-off"></i>
+      <div class="brand">RahulFlix</div>
+      
+      <!-- Hamburger Menu Button (Mobile Only) -->
+      <button class="hamburger-menu" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
       </button>
-  </div>
-</header>
+      
+      <!-- Navigation Links -->
+      <nav class="nav-links" id="navLinks">
+        <a href="#" onclick="showSection('home')" data-section="home">Home</a>
+        <a href="#" onclick="showSection('skills')" data-section="skills">Skills</a>
+        <a href="#" onclick="showSection('projects')" data-section="projects">Projects</a>
+        <a href="#" onclick="showSection('professional')" data-section="professional">Timeline</a>
+        <a href="#" onclick="showSection('hire')" data-section="hire">Contact</a>
+        <a href="#" onclick="showSection('about')" data-section="about">About</a>
+      </nav>
+      
+      <!-- Logout Button -->
+      <div class="logout-container">
+        <button class="power-button" onclick="handleLogout(event)">
+          <i class="fas fa-power-off"></i>
+        </button>
+      </div>
+    </header>
 
     <!-- HOME SECTION -->
     <div class="content-section" id="homeSection">
@@ -324,7 +322,7 @@
             </div>
             <div class="project-content">
               <h3>Stock Broker Platform</h3>
-              <p>A comprehensive stock trading application that enables customers to invest in the stock market through a secure web-based platform. Features include portfolio management, real-time market data, and transaction tracking [6].</p>
+              <p>A comprehensive stock trading application that enables customers to invest in the stock market through a secure web-based platform. Features include portfolio management, real-time market data, and transaction tracking.</p>
               <div class="tech-tags">
                 <span class="tech-tag">Java</span>
                 <span class="tech-tag">Spring Boot</span>
@@ -349,7 +347,7 @@
             </div>
             <div class="project-content">
               <h3>Password Encryption System</h3>
-              <p>Advanced password encryption and decryption utility using AES encryption algorithm. Provides secure password management with key generation, initialization vectors, and command-line interface [14].</p>
+              <p>Advanced password encryption and decryption utility using AES encryption algorithm. Provides secure password management with key generation, initialization vectors, and command-line interface.</p>
               <div class="tech-tags">
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">AES Encryption</span>
@@ -374,7 +372,7 @@
             </div>
             <div class="project-content">
               <h3>Advanced Keylogger</h3>
-              <p>Cross-platform keystroke logging application that records keyboard inputs and mouse clicks. Features remote server communication and stealth operation for cybersecurity research and monitoring [16][19].</p>
+              <p>Cross-platform keystroke logging application that records keyboard inputs and mouse clicks. Features remote server communication and stealth operation for cybersecurity research and monitoring.</p>
               <div class="tech-tags">
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">PyInput</span>
@@ -399,7 +397,7 @@
             </div>
             <div class="project-content">
               <h3>Hash Cracker Utility</h3>
-              <p>Powerful hash cracking tool that supports multiple hash formats including MD5, SHA-1, SHA-256, and SHA-512. Features dictionary attacks, brute force capabilities, and verbose output for penetration testing [22][23].</p>
+              <p>Powerful hash cracking tool that supports multiple hash formats including MD5, SHA-1, SHA-256, and SHA-512. Features dictionary attacks, brute force capabilities, and verbose output for penetration testing.</p>
               <div class="tech-tags">
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">Hashlib</span>
@@ -424,7 +422,7 @@
             </div>
             <div class="project-content">
               <h3>Non-Hashed Password Cracker</h3>
-              <p>Educational cybersecurity tool demonstrating vulnerabilities in non-hashed password storage. Implements dictionary and brute force attacks to highlight the importance of proper password hashing [24][27].</p>
+              <p>Educational cybersecurity tool demonstrating vulnerabilities in non-hashed password storage. Implements dictionary and brute force attacks to highlight the importance of proper password hashing.</p>
               <div class="tech-tags">
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">Dictionary Attack</span>
@@ -871,38 +869,37 @@
       document.getElementById("logoutDropdown").classList.toggle("show");
     }
 
-function handleLogout(event) {
-  // Prevent default link behavior if called from <a>
-  if (event) event.preventDefault();
+    function handleLogout(event) {
+      // Prevent default link behavior if called from <a>
+      if (event) event.preventDefault();
 
-  // Close mobile menu if open
-  const navLinks = document.getElementById('navLinks');
-  const hamburger = document.querySelector('.hamburger-menu');
-  if (navLinks && navLinks.classList.contains('active')) {
-    navLinks.classList.remove('active');
-    if (hamburger) hamburger.classList.remove('active');
-    document.body.classList.remove('menu-open');
-  }
+      // Close mobile menu if open
+      const navLinks = document.getElementById('navLinks');
+      const hamburger = document.querySelector('.hamburger-menu');
+      if (navLinks && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
 
-  // Always close the logout dropdown if open
-  const logoutDropdown = document.getElementById("logoutDropdown");
-  if (logoutDropdown) logoutDropdown.classList.remove("show");
+      // Always close the logout dropdown if open
+      const logoutDropdown = document.getElementById("logoutDropdown");
+      if (logoutDropdown) logoutDropdown.classList.remove("show");
 
-  // Show confirmation dialog
-  if (confirm('Are you sure you want to logout?')) {
-    // Reset to home/profile screen
-    document.getElementById("scrollSection").style.display = "none";
-    document.getElementById("profileScreen").style.display = "flex";
-    document.body.classList.add("no-scroll");
-    showSection('home');
-    // Remove active class on logout
-    const navLinksLinks = document.querySelectorAll('.navbar nav a');
-    navLinksLinks.forEach(link => link.classList.remove('active'));
-    // If you want to redirect, uncomment the next line:
-    // window.location.href = '/logout';
-  }
-}
-
+      // Show confirmation dialog
+      if (confirm('Are you sure you want to logout?')) {
+        // Reset to home/profile screen
+        document.getElementById("scrollSection").style.display = "none";
+        document.getElementById("profileScreen").style.display = "flex";
+        document.body.classList.add("no-scroll");
+        showSection('home');
+        // Remove active class on logout
+        const navLinksLinks = document.querySelectorAll('.navbar nav a');
+        navLinksLinks.forEach(link => link.classList.remove('active'));
+        // If you want to redirect, uncomment the next line:
+        // window.location.href = '/logout';
+      }
+    }
 
     function scrollSlider(direction) {
       const container = document.getElementById('sliderContainer');
@@ -923,58 +920,60 @@ function handleLogout(event) {
 
     window.onclick = function(event) {
       if (!event.target.closest('.logout-container')) {
-        document.getElementById("logoutDropdown").classList.remove("show");
+        const logoutDropdown = document.getElementById("logoutDropdown");
+        if (logoutDropdown) logoutDropdown.classList.remove("show");
       }
     };
-    // Mobile menu toggle functionality
-function toggleMobileMenu() {
-  const navLinks = document.getElementById('navLinks');
-  const hamburger = document.querySelector('.hamburger-menu');
-  const body = document.body;
-  
-  // Toggle active class on navigation links
-  navLinks.classList.toggle('active');
-  
-  // Toggle active class on hamburger for animation
-  hamburger.classList.toggle('active');
-  
-  // Prevent body scroll when menu is open
-  if (navLinks.classList.contains('active')) {
-    body.classList.add('menu-open');
-  } else {
-    body.classList.remove('menu-open');
-  }
-}
 
-// Close mobile menu when clicking on a navigation link
-document.addEventListener('DOMContentLoaded', function() {
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const hamburger = document.querySelector('.hamburger-menu');
-  const navLinksContainer = document.getElementById('navLinks');
-  
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      // Close mobile menu when a link is clicked
-      if (window.innerWidth <= 768) {
-        navLinksContainer.classList.remove('active');
-        hamburger.classList.remove('active');
-        document.body.classList.remove('menu-open');
-      }
-    });
-  });
-  
-  // Close menu when clicking outside
-  document.addEventListener('click', function(event) {
-    if (window.innerWidth <= 768) {
-      const navbar = document.querySelector('.navbar');
-      if (!navbar.contains(event.target)) {
-        navLinksContainer.classList.remove('active');
-        hamburger.classList.remove('active');
-        document.body.classList.remove('menu-open');
+    // Mobile menu toggle functionality
+    function toggleMobileMenu() {
+      const navLinks = document.getElementById('navLinks');
+      const hamburger = document.querySelector('.hamburger-menu');
+      const body = document.body;
+      
+      // Toggle active class on navigation links
+      navLinks.classList.toggle('active');
+      
+      // Toggle active class on hamburger for animation
+      hamburger.classList.toggle('active');
+      
+      // Prevent body scroll when menu is open
+      if (navLinks.classList.contains('active')) {
+        body.classList.add('menu-open');
+      } else {
+        body.classList.remove('menu-open');
       }
     }
-  });
-});
+
+    // Close mobile menu when clicking on a navigation link
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-links a');
+      const hamburger = document.querySelector('.hamburger-menu');
+      const navLinksContainer = document.getElementById('navLinks');
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          // Close mobile menu when a link is clicked
+          if (window.innerWidth <= 768) {
+            navLinksContainer.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) {
+          const navbar = document.querySelector('.navbar');
+          if (!navbar.contains(event.target)) {
+            navLinksContainer.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }
+        }
+      });
+    });
 
   </script>
 </body>
