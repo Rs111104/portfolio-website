@@ -1583,3 +1583,235 @@ img {
     transform: none;
   }
 }
+/* NAVBAR STYLES - Updated */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 5vw, 40px);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  color: #e50914;
+  letter-spacing: 1px;
+  cursor: pointer;
+  user-select: none;
+  flex: 1; /* Allow brand to take available space */
+}
+
+.brand:hover {
+  text-decoration: underline;
+}
+
+/* New container for navbar controls */
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between elements */
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 14px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-links a:hover {
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.nav-links a.active {
+  background-color: #000000;
+  color: #fff;
+  box-shadow: 0 0 25px rgba(229, 9, 20, 0.8), 0 0 50px rgba(229, 9, 20, 0.4);
+  border: 1px solid rgba(229, 9, 20, 0.6);
+}
+
+.logout-container {
+  position: relative;
+}
+
+.power-button {
+  font-family: 'Poppins', sans-serif;
+  background-color: transparent;
+  color: #e50914;
+  border: 2px solid #e50914;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.power-button:hover {
+  background-color: #e50914;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.6);
+  transform: scale(1.05);
+}
+
+/* HAMBURGER MENU STYLES */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* RESPONSIVE DESIGN - Fixed Mobile Navigation */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+    height: 60px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .brand {
+    font-size: 1.8rem;
+    flex: 1;
+  }
+  
+  /* Updated navbar controls for mobile */
+  .navbar-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Reduced gap for mobile */
+    order: 3; /* Place controls at the end */
+  }
+  
+  .hamburger-menu {
+    display: flex;
+    order: 1; /* Hamburger comes first */
+  }
+  
+  .logout-container {
+    position: static; /* Remove absolute positioning */
+    order: 8; /* Logout button comes second */
+    transform: none; /* Remove transform */
+  }
+  
+  .power-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    border-radius: 0 0 12px 12px;
+    gap: 15px;
+    z-index: 999;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links a {
+    padding: 12px 16px;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background-color: #e50914;
+    border-color: #e50914;
+    transform: translateX(5px);
+  }
+  
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburger-menu {
+    display: none !important;
+  }
+  
+  .nav-links {
+    display: flex !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+  }
+  
+  .navbar-controls {
+    gap: 20px; /* Larger gap for desktop */
+  }
+}
