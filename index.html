@@ -111,32 +111,36 @@
         <h2 class="section-title">Today's Pick</h2>
         <div class="netflix-slider">
           <div class="slider-container" id="sliderContainer">
-            <div class="netflix-card" data-number="1">
-              <div class="card-number">1</div>
-              <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&h=400&fit=crop" alt="Web Development">
-              <div class="card-info">
-                <h3>Level</h3>
-                <p>Learning and Gaining experience</p>
-                <span class="new-badge">Fresher</span>
-              </div>
-            </div>
-            <div class="netflix-card" data-number="2">
-              <div class="card-number">2</div>
-              <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=300&h=400&fit=crop" alt="E-commerce">
-              <div class="card-info">
-                <h3>Projects</h3>
-                <p>Development and Coding</p>
-                <p>4+ Projects completed</p>
-              </div>
-            </div>
-            <div class="netflix-card" data-number="3">
-              <div class="card-number">3</div>
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=400&fit=crop" alt="Dashboard">
-              <div class="card-info">
-                <h3>Certification</h3>
-                <p>Earned 8+ certifications from reputable and acclaimed organizations.</p>
-              </div>
-            </div>
+            <div class="netflix-card" data-number="1" onclick="showProfessionalSection()">
+  <div class="card-number">1</div>
+  <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&h=400&fit=crop" alt="Web Development">
+  <div class="card-info">
+    <h3>Level</h3>
+    <p>Learning and Gaining experience</p>
+    <span class="new-badge">Fresher</span>
+  </div>
+</div>
+
+            <div class="netflix-card" data-number="2" onclick="showProjectsSection()">
+  <div class="card-number">2</div>
+  <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=300&h=400&fit=crop" alt="E-commerce">
+  <div class="card-info">
+    <h3>Projects</h3>
+    <p>Development and Coding</p>
+    <p>4+ Projects completed</p>
+  </div>
+</div>
+
+   <!-- Replace your existing certification card with this -->
+<div class="netflix-card" data-number="3" onclick="goToCertifications()">
+  <div class="card-number">3</div>
+  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=400&fit=crop" alt="Dashboard">
+  <div class="card-info">
+    <h3>Certification</h3>
+    <p>Earned 7+ certifications from reputable and acclaimed organizations.</p>
+  </div>
+</div>
+
             <div class="netflix-card" data-number="4">
               <div class="card-number">4</div>
               <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&h=400&fit=crop" alt="Mobile App">
@@ -145,14 +149,15 @@
                 <p>English • Hindi • French • Punjabi</p>
               </div>
             </div>
-            <div class="netflix-card" data-number="5">
-              <div class="card-number">5</div>
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=400&fit=crop" alt="AI Project">
-              <div class="card-info">
-                <h3>Skills</h3>
-                <p>Still Learning and Upgrading</p>
-              </div>
-            </div>
+            <div class="netflix-card" data-number="5" onclick="showSkillsSection()">
+  <div class="card-number">5</div>
+  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=400&fit=crop" alt="AI Project">
+  <div class="card-info">
+    <h3>Skills</h3>
+    <p>Still Learning and Upgrading</p>
+  </div>
+</div>
+
             <div class="netflix-card" data-number="6">
               <div class="card-number">6</div>
               <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300&h=400&fit=crop" alt="Web Development">
@@ -314,10 +319,10 @@
     </div>
 
     <!-- ENHANCED PROJECTS SECTION -->
-    <div class="content-section" id="projectsSection" style="display: none;">
-      <div class="projects-container">
-        <h2 class="section-title">My Projects</h2>
-        <div class="projects-grid">
+   <div class="content-section" id="projectsSection" style="display: none;">
+  <div class="projects-container">
+    <h2 class="section-title">My Projects</h2>
+    <div class="projects-grid">
           
           <!-- Stock Broker Application -->
           <div class="project-card">
@@ -449,14 +454,14 @@
     </div>
 
     <!-- ENHANCED PROFESSIONAL EXPERIENCE SECTION -->
-    <div class="content-section" id="professionalSection" style="display: none;">
-      <div class="professional-container">
-        <h1 class="section-title">Professional Journey</h1>
-        <div class="timeline-grid">
-          <div class="timeline-column">
-            <h3 class="timeline-column-title">Work Experience</h3>
-            <div class="timeline">
-              <div class="timeline-line"></div>
+   <div class="content-section" id="professionalSection" style="display: none;">
+  <div class="professional-container">
+    <h1 class="section-title">Professional Journey</h1>
+    <div class="timeline-grid">
+      <div class="timeline-column">
+        <h3 class="timeline-column-title">Work Experience</h3>
+        <div class="timeline">
+          <div class="timeline-line"></div>
               
               <div class="timeline-item">
                 <div class="timeline-milestone">
@@ -978,6 +983,45 @@
         }
       });
     });
+    function goToCertifications() {
+  window.location.href = 'certifications.html';
+}
+function showProjectsSection() {
+  // Hide all content-sections if you have multiple, optional
+  document.querySelectorAll('.content-section').forEach(function(section) {
+    section.style.display = 'none';
+  });
+  // Show the projects section
+  var projSection = document.getElementById('projectsSection');
+  projSection.style.display = 'block';
+  // Smooth scroll to the section
+  projSection.scrollIntoView({behavior: 'smooth'});
+}
+function showProfessionalSection() {
+  // Hide all content sections if you have more than one
+  document.querySelectorAll('.content-section').forEach(function(section) {
+    section.style.display = 'none';
+  });
+  // Show the professional section
+  var profSection = document.getElementById('professionalSection');
+  profSection.style.display = 'block';
+  // Smooth scroll to the section
+  profSection.scrollIntoView({behavior: 'smooth'});
+}
+function showSkillsSection() {
+  // Hide all content sections if you have more than one
+  document.querySelectorAll('.content-section').forEach(function(section) {
+    section.style.display = 'none';
+  });
+  // Show the skills section
+  var skillsSection = document.getElementById('skillsSection');
+  skillsSection.style.display = 'block';
+  // Smooth scroll to the section
+  skillsSection.scrollIntoView({behavior: 'smooth'});
+}
+</script>
+
+</script>
 
   </script>
 </body>
