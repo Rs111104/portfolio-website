@@ -1998,21 +1998,22 @@ img {
 }
 
 .arrow {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 900;
-  color: #0b0b0b;
-  text-shadow: 0 2px 8px #090909, 0 0 2px #060606;
+  color: #000000;
+  text-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
-  height: 90%;
+  width: auto;
+  height: auto;
   position: absolute;
   inset: 0;
   z-index: 2;
   filter: none;
-  -webkit-text-stroke: 4px #030303;
-  stroke: #222;
+  -webkit-text-stroke: 0;
+  stroke: #000000;
+  stroke-width: 4.2; /* Increased by 20% from default 1 */
 }
 
 @keyframes bounce {
